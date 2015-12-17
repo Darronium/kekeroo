@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def new
-  	@user = User.new
+    if !logged_in?
+  	 @user = User.new
+    else
+      redirect_to root_path
+    end
   end
 
   def show
@@ -10,8 +14,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      #log_in @user
-   	  flash[:success] = "Welcome to the Sample App!"
+      log_in @user
+   	  flash[:success] = "Welcome!"
       redirect_to root_path
     else
       render 'new'
@@ -26,4 +30,11 @@ class UsersController < ApplicationController
                                      :password_confirmation)
     end
 
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
 end

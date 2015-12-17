@@ -11,7 +11,7 @@
   clear: both;
   float: left;
   width: 100%;
-  margin-top: 155px;
+  margin-top: 255px;
   @include box_sizing;
 }
 
@@ -28,14 +28,30 @@ body{
 	padding-top: 50px;
 }
 
+.checkbox {
+  margin: 0;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
 .signup{
-	width: 600px;
+	width: 500px;
 	margin-left: auto;
 	margin-right: auto;
-	form{
-		position: relative;
-		top: 80px;
-		left: 15px;
+	position: relative;
+	top: 80px;
+	.col-sm-6{
+		height: 120px;
+		padding: 0;
+	}	
+	form{	
 		text-align: left;
 		letter-spacing: 2px;
 
@@ -50,15 +66,18 @@ body{
 				padding: 4px 6px;
 				height: 22px;
 				width: 100%;
+				background-color: #fdfcfc;
 			}
 		}			
 	}
 }
 
 .login{
+    position: relative;
+    top: 50%;
     left: 50%;
-	margin-right: -50%;
-	transform: translate(-50%, -50%); 
+    margin-right: -50%;
+    transform: translate(-50%, -50%);  
     width: 224px;
     form{
 		position: relative;
@@ -76,6 +95,7 @@ body{
 				padding: 4px 6px;
 				height: 22px;
 				width: 100%;
+				background-color: #fdfcfc;
 			}
 		}			
 	}
@@ -97,9 +117,10 @@ a{
 	ul{
 		margin: 0;
 		padding: 0;
-		list-style-type: none;
+		list-style-type: circle;
 	}
 	position: relative;
-	top: 100px;
-	font-size: 12px;
+	top: 10px;
+	font-size: 11px;
+	text-align: left;
 }

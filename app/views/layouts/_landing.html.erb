@@ -1,0 +1,30 @@
+
+<div class = "center">
+	<div class = "bannerlogo">
+		<%= link_to image_tag("logo.svg", alt: "Kekeroo"), root_path  %>
+	</div>
+	<div class = "login">
+		<%= form_for(:session, url: login_path) do |f| %>
+		      
+	      <form class="form-horizontal">
+	      	  <div class="form-row">
+			      <%= f.text_field :username, class: 'form-control', :placeholder => :username %>
+			  </div>
+			  <div class="form-row">
+			      <%= f.password_field :password, class: 'form-control', :placeholder => :password %>
+			  </div>
+			  <div class="form-row">
+			    <%= f.label :remember_me, class: "checkbox inline" do %>
+        			<%= f.check_box :remember_me %>
+        			<span>Remember me • <%= link_to "Sign Up", signup_path %></span>
+        		<% end %>
+			  </div>
+			  <div class="form-row">
+			      <%= f.submit "Log In", class: "btn btn-default" %>
+			  </div>
+		  </form>
+
+		<% end %>
+
+	</div>
+</div>

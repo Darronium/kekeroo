@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'errors/not_found'
+  get 'errors/internal_server_error'
+
   get 'download'  => 'static_pages#download'
   get 'help'      => 'static_pages#help'
   get 'signup'    => 'users#new'
@@ -8,12 +11,16 @@ Rails.application.routes.draw do
   post  'login'  => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
+  get "/404" => "errors#not_found"
+  get "/500" => "errors#internal_server_error"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   #root 'landing_page#home'
-  resources :users
+  resources :users 
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

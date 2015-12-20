@@ -1,6 +1,7 @@
 module SessionsHelper
   def log_in(user)
     session[:user_id] = user.id
+    user.update_attribute(:status, true)
   end
 
 
@@ -42,6 +43,7 @@ module SessionsHelper
   # Logs out the current user.
   def log_out
     forget(current_user)
+    current_user.update_attribute(:status, false) if !current_user.remember_digest
     session.delete(:user_id)
     @current_user = nil
   end
@@ -56,4 +58,5 @@ module SessionsHelper
   def store_location
     session[:forwarding_url] = request.url if request.get?
   end
+
 end

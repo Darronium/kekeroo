@@ -4,7 +4,7 @@
 			<%= link_to image_tag("logo.svg", alt: "Kekeroo"), root_path  %>
 		</div>
 		<div class = "signup">
-			<div class = "col-sm-6" style="border-right: solid #999;">
+			<div class = "col-sm-5" style="border-right: solid #999;">
 			    <%= form_for(User.new) do |f| %>	      
 
 			      <form class="form-horizontal">
@@ -25,8 +25,8 @@
 
 			    <% end %>
 			</div>
-
-			<div class = "col-sm-6" style = "left: 45px;">
+			<div class = "col-sm-2"></div>
+			<div class = "col-sm-5">
 				<%= form_for(:session, url: login_path) do |f| %>
 			      
 			      <form class="form-horizontal">

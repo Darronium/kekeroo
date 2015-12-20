@@ -1,0 +1,14 @@
+<div class="users">
+	<ul class="userlist">
+	  <% User.all.each do |user| %>
+	    <li>
+	    	<%= image_tag(user.avatar, size: "28", style: "margin: 8px") %> 
+	    	<%= link_to user.username, user %>
+	    	<div class = "status"><% if user.status %> • <% end %></div>
+	    </li>
+	  <% end %>
+	</ul>
+	<form id = "livesearch" method = "get" action = "<%= root_path %>">
+  		<input id = "searchbox" type = "text" style= "width: 166px;">
+  	</form>
+</div>

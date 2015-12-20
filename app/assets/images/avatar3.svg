@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" width="249.04" height="248.89" viewBox="0 0 249.04 248.89" enable-background="new 0 0 249.04 248.89" xml:space="preserve">
+	<ellipse fill="#FFFFFF" fill-opacity="1" stroke-linejoin="round" cx="124.52" cy="124.445" rx="122.655" ry="122.58"/>
+	<ellipse fill="none" stroke-width="3.73039" stroke-linejoin="miter" stroke="#000000" stroke-opacity="1" cx="124.52" cy="124.445" rx="122.655" ry="122.58"/>
+	<ellipse fill="#000000" fill-opacity="1" stroke-width="50800" stroke-linejoin="miter" cx="124.52" cy="136.853" rx="99.7933" ry="96.7852"/>
+	<ellipse fill="none" stroke-width="1.24346" stroke-linejoin="miter" stroke="#000000" stroke-opacity="1" cx="124.52" cy="136.853" rx="99.7933" ry="96.7852"/>
+	<ellipse fill="#FFFFFF" fill-opacity="1" stroke-width="16933.3" stroke-linejoin="miter" cx="124.595" cy="104.667" rx="115.962" ry="76.7815"/>
+	<ellipse fill="none" stroke-width="1.24346" stroke-linejoin="miter" stroke="#FFFFFF" stroke-opacity="1" cx="124.595" cy="104.667" rx="115.962" ry="76.7815"/>
+	<line fill="none" stroke-width="3.68195" stroke-linejoin="miter" stroke="#000000" stroke-opacity="1" x1="49.8442" y1="65.4863" x2="110.161" y2="99.4932"/>
+	<line fill="none" stroke-width="3.48816" stroke-linejoin="miter" stroke="#000000" stroke-opacity="1" x1="45.6329" y1="118.464" x2="110.199" y2="98.2744"/>
+	<line fill="none" stroke-width="3.70234" stroke-linejoin="miter" stroke="#000000" stroke-opacity="1" x1="197.54" y1="133.003" x2="135.117" y2="103.038"/>
+	<line fill="none" stroke-width="3.73106" stroke-linejoin="miter" stroke="#000000" stroke-opacity="1" x1="198.301" y1="79.9565" x2="135.203" y2="104.351"/>
+</svg>

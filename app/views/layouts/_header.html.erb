@@ -1,12 +1,18 @@
 <header class="navbar">
 	<div class = "container">
+		<% if logged_in? %>
+			<ul class="nav navbar-nav navbar-left">
+				<li><%= image_tag(current_user.avatar, size: "24", style: "margin: 13px") %></li>
+				<li><%= link_to current_user.username, current_user %></li>
+			</ul>
+		<% end %>
 		<ul class="nav navbar-nav navbar-right">
-		    <li><%= link_to "Home",   root_path %></li>
+		     <li><%= link_to "Home",   root_path %></li>
 		    <li><%= link_to "Download",   download_path %></li>
 		    <li><%= link_to "Help",   help_path %></li>
 		    <li>
 		    	<% if logged_in? %>
-		    		<%= link_to "Log Out", logout_path, method: "delete" %>
+		            <%= link_to "Log out", logout_path, method: "delete" %>
 		    	<% else %>
 		    		<%= link_to "Sign Up",   signup_path %>	
 		    	<% end %>

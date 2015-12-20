@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :messages
 	attr_accessor :remember_token
-	validates :username, presence: true, length: {in: 3..16}, uniqueness: true
-
+	validates :username, presence: true, length: {in: 3..16}, uniqueness: { case_sensitive: false }
 	has_secure_password
 	validates :password, presence: true, length: { in: 6..20 }, allow_nil: true
 
@@ -32,4 +32,10 @@ class User < ActiveRecord::Base
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  def to_param
+    username
+  end
+
+  
 end

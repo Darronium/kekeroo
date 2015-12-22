@@ -13,4 +13,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= depend_on_asset assets/images/logo_alt.svg

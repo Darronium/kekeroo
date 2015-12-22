@@ -7,7 +7,24 @@
 			</ul>
 		<% end %>
 		<ul class="nav navbar-nav navbar-right">
-		     <li><%= link_to "Home",   root_path %></li>
+			<% if logged_in? %>
+	          <li class="dropdown">
+	            <a href="users" class="dropdown-toggle" data-toggle="dropdown">
+	              Users <b class="caret"></b>
+	            </a>
+	            <ul class="dropdown-menu">
+	              <% User.all.each do |user| %>
+	              	<% if user.status %>
+					    <li class = "userdropdown">
+					    	<%= image_tag(user.avatar, size: "24") %> 
+					    	<%= link_to user.username, user, style: "color: user.color_code;", class: "dropdownname" %>
+					    </li>
+					<% end %>
+				  <% end %>
+	            </ul>
+	          </li>
+	        <% end %>
+		    <li><%= link_to "Home",   root_path %></li>
 		    <li><%= link_to "Download",   download_path %></li>
 		    <li><%= link_to "Help",   help_path %></li>
 		    <li>

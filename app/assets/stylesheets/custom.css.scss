@@ -18,10 +18,15 @@
 body{
 	background-color: black;
 	color: #f5f5f5;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', '黑体', 'Malgun Gothic', sans-serif;
 	.center {
 	  text-align: center;
 	}
+	overflow: hidden;
+}
+
+textarea{
+	color: black;
 }
 
 .bannerlogo{
@@ -38,6 +43,20 @@ body{
 
 .dropdown-menu{
 	background-color: #f5f5f5;
+	width: 50px;
+}
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+.userdropdown{
+	display: inline-block;
+	height: 32px;
+	text-align: center;
+	margin-left: 10px;
+	.dropdownname{
+		display: inline-block;
+		padding: 4px;
+	}
 }
 
 #session_remember_me {
@@ -50,6 +69,7 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 	position: relative;
+	left: 40px;
 	top: 80px;
 	.col-sm-5{
 		height: 120px;
@@ -132,14 +152,14 @@ a{
 
 .users{
 	padding: 0;
-	height: 550px;
+	height: 650px;
 	width: 180px;
 	float: right;
 	border: solid;
 	.userlist{
 		padding: 0;
 		margin: 0;
-		height: 510px;
+		height: 610px;
 		width: 176px;
 		list-style-type: none;
 		overflow-y: scroll;
@@ -158,35 +178,60 @@ a{
 }
 
 .chat{
-	height: 550px;
+	height: 650px;
 	border: solid;
 	padding: 2px;
 	.chatbox{
-		height: 510px;
+		height: 610px;
+		overflow-y: scroll;
+		display: block;
+		padding: 5px;
+		.chatcontainer{
+			border-collapse: separate;
+    		border-spacing: 10px;
+			width: 100%;
+			.chatuser{
+				width: 6%;
+				text-align: center;
+				font-size: 65%;
+				
+			}
+			.chatmessage{
+				width: 94%;
+				span{
+					display: inline-block;
+					border: 3px solid #fdfcfc;
+					border-radius: 5px;
+					padding: 5px;
+					word-break: break-all;
+				}
+			}
+		}
 	}
 	.inputform{
-		height: 40px;
-		display: inline;
-		.textfield{
-			height: 26px;
-			padding: 2px;
-			width: 90%;
-			color: black;
-			resize: none;
-			position: relative;
-			top: 4px;
-		}
-		.btn{
-			background-color: black;
-			border-color: #fdfcfc;
-			border: solid;
-			width: 8%;
-			height: 30px;
-			position: relative;
-			bottom: 5px;
-			padding: 0;
-			text-align: center;
-		}
+		height: 30px;
+		color: black;
+	}
+}
+
+.field{
+	width: 100%;
+	margin: 0;
+	#message_body{
+		width: 93%;
+		resize: none;
+		height: 26px;
+		padding: 1px;
+		position: relative;
+		top: 6px;
+		border-radius: 2px;
+	}
+	.btn-default{
+		padding: 2px;
+		position: relative;
+		bottom: 3px;
+		text-align: center;
+		width: 6%;
 	}
 }
 

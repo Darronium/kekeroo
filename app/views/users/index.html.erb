@@ -1,8 +1,8 @@
 <% provide(:title, 'Users') %>
 <div class="users">
 	<ul class="userlist">
-	  <% @users.each do |user| %>
-	    <li>
+	  <% User.all.each do |user| %>
+	    <li style = "color: <%= user.color_code %>;">
 	    	<%= image_tag(user.avatar, size: "28", style: "margin: 8px") %> 
 	    	<%= link_to user.username, user %>
 	    	<div class = "status"><% if user.status %> • <% end %></div>

@@ -11,13 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151220000656) do
-
-  create_table "chats", force: :cascade do |t|
-    t.integer  "sender_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20151222000325) do
 
   create_table "messages", force: :cascade do |t|
     t.text     "body"
@@ -26,7 +20,6 @@ ActiveRecord::Schema.define(version: 20151220000656) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "messages", ["user_id", "created_at"], name: "index_messages_on_user_id_and_created_at"
   add_index "messages", ["user_id"], name: "index_messages_on_user_id"
 
   create_table "users", force: :cascade do |t|
@@ -39,6 +32,7 @@ ActiveRecord::Schema.define(version: 20151220000656) do
     t.boolean  "admin"
     t.boolean  "status"
     t.string   "avatar"
+    t.string   "color_code"
   end
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true

@@ -1,22 +1,29 @@
-<div class = "col-md-3">
-	<div class = "bannerlogo">
-		<%= link_to image_tag("logo.svg", alt: "Kekeroo"), root_path  %>
-	</div>
-</div>
+<div class = "col-md-1"></div>
 
-<div class = "col-md-7 chat">
-	<div class = "chatbox">
-		<li>
-		  
-		</li>
+<div class = "col-md-10 chat">
+	<div class = "chatbox" id = "scroll">
+		<% Message.all.reverse_each do |message| %>
+			<table class = "chatcontainer">
+				<tr>
+			        <td class = "chatuser">
+			        	<div><%= link_to image_tag(message.user.avatar, size: "36"), message.user %></div>
+			        	<div style = "color:<%= message.user.color_code %>;" ><%= message.user.username %></div>
+			        </td>
+			        <td class = "chatmessage">
+			        	<span style = "border-color:<%= message.user.color_code %>;" ><%= message.body %></span>
+			        </td>
+			    </tr>
+		    </table>
+	    <% end %>
 	</div>
 	<div class = "inputform">
-
+		<%= render 'messages/form' %>
 	</div>
 </div>
 
-<div class = "col-md-2">
-	<ul>
-  		<%= render 'layouts/users' %>
-	</ul>
-</div>
+<div class = "col-md-1"></div>
+
+<script type="text/javascript">
+	var objDiv = document.getElementById("scroll");
+	objDiv.scrollTop = objDiv.scrollHeight;
+</script>

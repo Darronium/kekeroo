@@ -13,5 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require turbolinks
-//= require_tree .
+//= depend_on_asset assets/images/logo_alt.svg

@@ -1,5 +1,5 @@
 <% provide(:title, @user.username) %>
-<h1><%= image_tag(@user.avatar, size: "32")  %> - <%= @user.username %> - <%= @user.color_code %></h1>
+<h1><%= image_tag(@user.avatar)  %> - <%= @user.username %> - <%= @user.color_code %></h1>
 <% if current_user.admin? && !current_user?(@user) %>
     <%= link_to "Delete User?", @user, method: :delete,
                                   data: { confirm: "You sure?" } %>

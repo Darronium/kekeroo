@@ -1,8 +1,8 @@
 <header class="navbar">
 	<div class = "container">
 		<% if logged_in? %>
-			<ul class="nav navbar-nav navbar-left">
-				<li><%= image_tag(current_user.avatar, size: "24", style: "margin: 13px") %></li>
+			<ul class="nav navbar-nav navbar-left", style = "color: <%= current_user.color_code %>;" >
+				<li><div class = "avatar-small-<%= current_user.avatar %>" style = "margin: 13px;"></div></li>
 				<li><%= link_to current_user.username, current_user %></li>
 			</ul>
 		<% end %>
@@ -16,8 +16,10 @@
 	              <% User.all.each do |user| %>
 	              	<% if user.status %>
 					    <li class = "userdropdown">
-					    	<%= image_tag(user.avatar, size: "24") %> 
-					    	<%= link_to user.username, user, style: "color: user.color_code;", class: "dropdownname" %>
+					    	<%= link_to user, class: "userlist" do %>
+					    		<div class = "onlinelist avatar-small-<%= user.avatar %>"></div>
+					    		<span class = "dropdownname" style = "color: <%= user.color_code %>;"><%= user.username %> </span>
+					    	<% end %>
 					    </li>
 					<% end %>
 				  <% end %>

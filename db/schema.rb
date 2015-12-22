@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151222000325) do
+ActiveRecord::Schema.define(version: 20151222204017) do
 
   create_table "messages", force: :cascade do |t|
     t.text     "body"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20151222000325) do
     t.string   "remember_digest"
     t.boolean  "admin"
     t.boolean  "status"
-    t.string   "avatar"
+    t.integer  "avatar"
     t.string   "color_code"
   end
 

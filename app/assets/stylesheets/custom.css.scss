@@ -7,6 +7,8 @@
   box-sizing:         border-box;
 }
 
+$light: #fdfdf5;
+
 .debug_dump {
   clear: both;
   float: left;
@@ -17,12 +19,12 @@
 
 body{
 	background-color: black;
-	color: #f5f5f5;
+	color: $light;
 	font-family: 'Roboto', '黑体', 'Malgun Gothic', sans-serif;
 	.center {
 	  text-align: center;
 	}
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 
 textarea{
@@ -42,7 +44,9 @@ textarea{
 }
 
 .dropdown-menu{
-	background-color: #f5f5f5;
+	background-color: black;
+	border: solid $light;
+	border-radius: 5px;
 	width: 50px;
 }
 .dropdown:hover .dropdown-menu {
@@ -51,11 +55,20 @@ textarea{
 .userdropdown{
 	display: inline-block;
 	height: 32px;
-	text-align: center;
-	margin-left: 10px;
-	.dropdownname{
-		display: inline-block;
-		padding: 4px;
+	width: 100%;
+	margin: 0;
+	.userlist{	
+		text-align: left;	
+		.dropdownname{
+			display: inline-block;
+			padding: 4px;
+			color: inherit;
+		}
+		.onlinelist{
+			display: inline-block;
+			position: relative;
+			top: 5px;
+		}
 	}
 }
 
@@ -92,7 +105,7 @@ textarea{
 				padding: 4px 6px;
 				height: 22px;
 				width: 100%;
-				background-color: #fdfcfc;
+				background-color: $light;
 			}
 		}			
 	}
@@ -121,7 +134,7 @@ textarea{
 				padding: 4px 6px;
 				height: 22px;
 				width: 100%;
-				background-color: #fdfcfc;
+				background-color: $light;
 			}
 		}			
 	}
@@ -133,7 +146,7 @@ a{
 	color: inherit;
 	text-decoration: none;
 	&:hover{
-		color: #999;
+		color: $light;
 		text-decoration: none;
 	}
 }
@@ -168,6 +181,8 @@ a{
 			font-size: 30px;
 			margin-right: 10px;
 			color: #51F55F;
+			position: relative;
+			bottom: 5px;
 		}
 	}
 	#livesearch{
@@ -200,7 +215,7 @@ a{
 				width: 94%;
 				span{
 					display: inline-block;
-					border: 3px solid #fdfcfc;
+					border: 3px solid $light;
 					border-radius: 5px;
 					padding: 5px;
 					word-break: break-all;

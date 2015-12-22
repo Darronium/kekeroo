@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      @user.update_attribute(:avatar, "avatar"+rand(1..3).to_s)
+      @user.update_attribute(:avatar, rand(1..4))
       @user.update_attribute(:color_code, ["#FBB07D", "#89C2F8", "#AEF184", "#FF8D8D", "#FFFF52"].sample)
    	  flash[:success] = "Welcome!"
       redirect_to root_path

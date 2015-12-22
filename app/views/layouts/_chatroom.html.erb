@@ -6,7 +6,9 @@
 			<table class = "chatcontainer">
 				<tr>
 			        <td class = "chatuser">
-			        	<div><%= link_to image_tag(message.user.avatar, size: "36"), message.user %></div>
+			        	<%= link_to message.user do %>
+			        		<div class = "avatar-chat-<%= message.user.avatar %> chaticon"></div>
+			        	<% end %>
 			        	<div style = "color:<%= message.user.color_code %>;" ><%= message.user.username %></div>
 			        </td>
 			        <td class = "chatmessage">

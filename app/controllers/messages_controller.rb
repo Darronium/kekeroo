@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: :create
-  before_action :admin_user,     only: [:destroy, :index]
+  before_action :admin_user,     only: [:destroy, :index, :new]
 
   # GET /messages
   # GET /messages.json

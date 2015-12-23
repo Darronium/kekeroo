@@ -1,0 +1,28 @@
+<div class ="center">
+	<div class = "bannerlogo">
+		<%= link_to image_tag("logo_letter_new.svg", alt: "Kekeroo"), root_path  %>
+	</div>
+	
+	<div class = "login">
+			    <%= form_for(User.new) do |f| %>	      
+
+			      <form class="form-horizontal">
+			      	  <div class="form-row">
+					      <%= f.text_field :username, class: 'form-control', :placeholder => :username %>
+					  </div>
+					  <div class="form-row">
+					      <%= f.password_field :password, class: 'form-control', :placeholder => :password %>
+					  </div>
+					  <div class="form-row">
+					      <%= f.password_field :password_confirmation, class: 'form-control', :placeholder => "Confirm Password" %>
+					  </div>
+					  <div class="form-row">
+					      <%= f.submit "Sign Up", class: "btn btn-default" %>
+					  </div>
+				  </form>
+				  <%= render 'shared/error_messages' %>
+
+			    <% end %>
+
+	</div>	
+</div>

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :messages
+  has_many :messages, dependent: :destroy
 	attr_accessor :remember_token
 	validates :username, presence: true, length: {in: 3..12}, uniqueness: { case_sensitive: false }
 	has_secure_password

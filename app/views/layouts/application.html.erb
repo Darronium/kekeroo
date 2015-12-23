@@ -3,20 +3,26 @@
 <head>
   <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'mobile' if mobile_device? %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
   <%= favicon_link_tag 'logo.ico' %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 </head>
 <body>
-	<%= render 'layouts/header' %>
-	<div class = "container"> 
-    <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
-		<%= yield %>
-		<%= render 'layouts/footer' %>
-    <%= debug(params) if Rails.env.development? %>
-	</div>
+    <% if mobile_device? %>
+  	  <%= render 'layouts/headermobile' %>
+    <% else %>
+      <%= render 'layouts/header' %>
+    <% end %>
+  	<div class = "container"> 
+      <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
+  		<%= yield %>
+  		<%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
+  	</div>
 </body>
 </html>

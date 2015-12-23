@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'download'  => 'static_pages#download'
   get 'help'      => 'static_pages#help'
   get 'signup'    => 'users#new'
+  get 'login'    => 'users#new'
 
   root 'sessions#new'
   post  'login'  => 'sessions#create'

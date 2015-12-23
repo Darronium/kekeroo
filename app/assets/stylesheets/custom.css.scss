@@ -193,11 +193,11 @@ a{
 }
 
 .chat{
-	height: 650px;
+	height: 700px;
 	border: solid;
 	padding: 2px;
 	.chatbox{
-		height: 610px;
+		height: 94%;
 		overflow-y: scroll;
 		display: block;
 		padding: 5px;
@@ -232,21 +232,24 @@ a{
 .field{
 	width: 100%;
 	margin: 0;
+	position: relative;
+	left: 2px;
 	#message_body{
-		width: 93%;
+		width: 92%;
 		resize: none;
-		height: 26px;
-		padding: 1px;
+		height: 32px;
+		padding: 2px;
+		font-size: 18px;
 		position: relative;
 		top: 6px;
 		border-radius: 2px;
 	}
 	.btn-default{
+		height: 32px;
 		padding: 2px;
 		position: relative;
-		bottom: 3px;
+		bottom: 6px;
 		text-align: center;
-		width: 6%;
 	}
 }
 

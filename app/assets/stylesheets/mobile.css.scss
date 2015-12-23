@@ -1,0 +1,22 @@
+
+#error_explanation{
+		position: relative;
+		top: 100px;
+}
+.field{
+	position: relative;
+	bottom: 10px;
+	#message_body{
+		width: 80%;
+	}
+	.btn-default{
+		width: 18%;
+	}
+}
+
+.dropdown:hover .dropdown-menu {
+	display: inline;
+}
+.chat{
+	height: 470px;
+}

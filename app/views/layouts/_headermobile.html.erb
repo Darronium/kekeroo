@@ -1,0 +1,57 @@
+<header class="navbar">
+<div class = "container">
+<ul class="nav navbar-nav navbar-right">
+
+<li class="dropdown">
+	<a href="users" class="dropdown-toggle" data-toggle="dropdown">
+	 Navigate <b class="caret"></b>
+	</a>
+	<ul class="dropdown-menu">
+
+
+
+					<header class="navbar">
+						<div class = "container">
+							<% if logged_in? %>
+								<ul class="nav navbar-nav navbar-left", style = "color: <%= current_user.color_code %>;" >
+									<li><div class = "avatar-small-<%= current_user.avatar %>" style = "margin: 13px;"></div></li>
+									<li><%= link_to current_user.username, current_user %></li>
+								</ul>
+							<% end %>
+							<ul class="nav navbar-nav navbar-right">
+								<% if logged_in? %>
+						          <li class="dropdown">
+						              Users <b class="caret"></b>
+						            <ul class="dropdown-menu">
+						              <% User.all.each do |user| %>
+						              	<% if user.status %>
+										    <li class = "userdropdown">
+										    	<%= link_to user, class: "userlist" do %>
+										    		<div class = "onlinelist avatar-small-<%= user.avatar %>"></div>
+										    		<span class = "dropdownname" style = "color: <%= user.color_code %>;"><%= user.username %> </span>
+										    	<% end %>
+										    </li>
+										<% end %>
+									  <% end %>
+						            </ul>
+						          </li>
+						        <% end %>
+							    <li><%= link_to "Home",   root_path %></li>
+							    <li><%= link_to "Download",   download_path %></li>
+							    <li><%= link_to "Help",   help_path %></li>
+							    <li>
+							    	<% if logged_in? %>
+							            <%= link_to "Log out", logout_path, method: "delete" %>
+							    	<% else %>
+							    		<%= link_to "Sign Up",   signup_path %>	
+							    	<% end %>
+							    </li>
+							</ul>
+						</div>
+					</header>
+
+	</ul>
+</li>
+</ul>
+</div>
+</header>

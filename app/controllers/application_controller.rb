@@ -17,5 +17,12 @@ class ApplicationController < ActionController::Base
     def admin_user
       redirect_to(root_url) unless current_user.admin?
     end
+
+    def mobile_device?
+      request.user_agent =~ /Mobile|webOS/
+    end
+    helper_method :mobile_device?
+
+
 end
 

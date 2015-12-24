@@ -3,7 +3,7 @@
 <head>
   <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <% if !mobile_device? %>
+  <% if mobile_device? %>
     <%= stylesheet_link_tag    'mobile' %>
   <% else %>
     <%= stylesheet_link_tag    'desktop' %>
@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 </head>
 <body>
-    <% if !mobile_device? %>
+    <% if mobile_device? %>
   	  <%= render 'layouts/headermobile' %>
     <% else %>
       <%= render 'layouts/header' %>

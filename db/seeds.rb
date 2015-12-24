@@ -19,6 +19,7 @@ if Rails.env == "development"
 	             	password:              "123456",
 	             	password_confirmation: "123456",
 	             	admin: false,
+	             	status: true,
 	             	avatar: rand(1..4),
 	             	color_code: ["#FBB07D", "#89C2F8", "#AEF184", "#FF8D8D", "#FFFF52"].sample)
 	end

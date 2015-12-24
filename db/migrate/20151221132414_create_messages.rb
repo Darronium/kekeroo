@@ -6,5 +6,6 @@ class CreateMessages < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :messages, [:created_at]
   end
 end

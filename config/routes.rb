@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   get "/404" => "errors#not_found"
+  get "/users/404" => "errors#user_not_found"
+  get "/users/500" => "errors#user_not_found"
   get "/500" => "errors#internal_server_error"
 
   # The priority is based upon order of creation: first created -> highest priority.

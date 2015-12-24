@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index]
-  before_action :admin_user,     only: :destroy
+  #before_action :admin_user,     only: :destroy
+  
   respond_to :js, :html, :json, only: :search
 
   def index
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_username(params[:id])
+    render '/errors/user_not_found' unless @user
   end
 
   def create
@@ -33,8 +35,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find_by_username(params[:id]).destroy
-    flash[:success] = "User deleted"
+    if current_user.admin? || (current_user == User.find_by_username(params[:id]))
+      User.find_by_username(params[:id]).destroy
+      flash[:success] = "User deleted"
+    end
     redirect_to root_path
   end
 

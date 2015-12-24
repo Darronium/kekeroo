@@ -3,7 +3,7 @@
 <ul class="nav navbar-nav navbar-right">
 
 <li class="dropdown">
-	<a href="users" class="dropdown-toggle" data-toggle="dropdown">
+	<a href="users" class="dropdown-toggle" data-toggle="dropdown" style="border-bottom: solid;">
 	 Navigate <b class="caret"></b>
 	</a>
 	<ul class="dropdown-menu">
@@ -13,16 +13,18 @@
 					<header class="navbar">
 						<div class = "container">
 							<% if logged_in? %>
-								<ul class="nav navbar-nav navbar-left", style = "color: <%= current_user.color_code %>;" >
-									<li><div class = "avatar-small-<%= current_user.avatar %>" style = "margin: 13px;"></div></li>
-									<li><%= link_to current_user.username, current_user %></li>
+								<ul class="nav navbar-nav", style = "color: <%= current_user.color_code %>; border-bottom: 0.1px solid #fdfdf5;" >
+									<li>
+										<div class = "avatar-small-<%= current_user.avatar %> currentuser" style = "display: inline-block;"></div>
+										<%= link_to current_user.username, current_user, class: "currentusername", style: "display: inline-block;" %>
+									</li>
 								</ul>
 							<% end %>
-							<ul class="nav navbar-nav navbar-right">
+							<ul class="nav navbar-nav">
 								<% if logged_in? %>
-						          <li class="dropdown">
-						              Users <b class="caret"></b>
-						            <ul class="dropdown-menu">
+						          <li><%= link_to "Users", "/users" %></b></li>
+
+						           <ul style = "padding-bottom: 10px;">
 						              <% User.all.each do |user| %>
 						              	<% if user.status %>
 										    <li class = "userdropdown">
@@ -34,12 +36,12 @@
 										<% end %>
 									  <% end %>
 						            </ul>
-						          </li>
+						          
 						        <% end %>
-							    <li><%= link_to "Home",   root_path %></li>
-							    <li><%= link_to "Download",   download_path %></li>
-							    <li><%= link_to "Help",   help_path %></li>
-							    <li>
+							    <li class = "navborder"><%= link_to "Home",   root_path %></li>
+							    <li class = "navborder"><%= link_to "Download",   download_path %></li>
+							    <li class = "navborder"><%= link_to "Help",   help_path %></li>
+							    <li class = "navborder">
 							    	<% if logged_in? %>
 							            <%= link_to "Log out", logout_path, method: "delete" %>
 							    	<% else %>

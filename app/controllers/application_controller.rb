@@ -18,6 +18,11 @@ class ApplicationController < ActionController::Base
       redirect_to(root_url) unless current_user.admin?
     end
 
+    def correct_user  
+      @user = User.find_by_username(params[:id])
+      redirect_to(root_url) unless @user == current_user
+    end
+
     def mobile_device?
       request.user_agent =~ /Mobile|webOS/
     end

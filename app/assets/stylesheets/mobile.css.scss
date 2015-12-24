@@ -1,22 +1,38 @@
+$light: #fdfdf5;
+
+.navbar{
+	margin-bottom: 0;
+} 
 
 #error_explanation{
 		position: relative;
 		top: 100px;
 }
 .field{
-	position: relative;
-	bottom: 10px;
 	#message_body{
-		width: 80%;
+		width: 78%;
 	}
 	.btn-default{
-		width: 18%;
+		width: 16%;
 	}
 }
 
-.dropdown:hover .dropdown-menu {
-	display: inline;
-}
+
 .chat{
-	height: 470px;
+	height: 500px;
+}
+
+.currentuser{
+	margin: 13px; 
+	display: inline-block;
+}
+.currentusername{
+	display: inline-block;
+	position: relative;
+	bottom: 20px;
+}
+
+.navborder{
+	border-top: 0.1px solid $light;
+	border-bottom: 0.1px solid $light;
 }

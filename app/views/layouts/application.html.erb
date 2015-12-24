@@ -3,11 +3,8 @@
 <head>
   <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <% if !mobile_device? %>
-    <%= stylesheet_link_tag    'nonmobile' %> 
-  <% else %>
-    <%= stylesheet_link_tag    'mobile' %>
-  <% end %>
+    <%= stylesheet_link_tag    'nonmobile'  if !mobile_device? %> 
+    <%= stylesheet_link_tag    'mobile'  if mobile_device?%>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
   <%= favicon_link_tag 'logo.ico' %>

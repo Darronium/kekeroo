@@ -1,4 +1,5 @@
 $light: #fdfdf5;
+//= depend_on_asset "logo.svg"
 
 .navbar{
 	margin-bottom: 0;
@@ -35,4 +36,16 @@ $light: #fdfdf5;
 .navborder{
 	border-top: 0.1px solid $light;
 	border-bottom: 0.1px solid $light;
+}
+
+.navlogo{
+	width: 36px;
+	height: 36px;
+	float: right;
+	background: url('<%= asset_path("logo.svg") %> ');
+	background-size: 36px;
+	display: inline-block;
+	position: relative;
+	right: 10px;
+	bottom: 12px;
 }

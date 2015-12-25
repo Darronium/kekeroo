@@ -10,6 +10,12 @@
   <%= favicon_link_tag 'logo.ico' %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+  <style>
+    ::-webkit-scrollbar-thumb {
+      background-color: <%= current_user.color_code if current_user %>;
+      border: 1px solid #0A0707;
+    }
+  </style>
 </head>
 <body>
     <% if mobile_device? %>

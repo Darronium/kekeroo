@@ -26,6 +26,7 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
+    
     @message = Message.new(message_params)
     @message.user_id = current_user.id;
 
@@ -34,7 +35,7 @@ class MessagesController < ApplicationController
         format.html { redirect_to root_path }
         format.json { render :show, status: :created, location: @message }
       else
-        flash.now[:danger] = 'The message could not be sent (maximum number of characters allowed: 320).'
+        flash.now[:danger] = 'The message could not be sent (please keep the number of characters between 1 and 320).'
         format.html { render 'sessions/new' }
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end

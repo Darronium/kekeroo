@@ -5,7 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5'
 gem 'bootstrap-sass'
 gem 'bcrypt'
-gem 'faye'
+gem 'redis'
+gem 'redis-namespace'
 gem 'responders'
 gem 'carrierwave'
 gem 'sass-rails', '~> 5.0'
@@ -18,7 +19,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   gem 'byebug'
-  gem 'sqlite3'
   gem 'spring'
 end
 
@@ -35,7 +35,7 @@ group :test do
   gem 'guard-minitest'
 end
 
-group :production do
+group :production, :development do
   gem 'pg'
   gem 'rails_12factor'
   gem 'puma'

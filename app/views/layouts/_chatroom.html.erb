@@ -1,21 +1,15 @@
 <div class = "col-md-1"></div>
 <div class = "col-md-10 chat">
 	<div class = "chatbox" id = "scroll">
-		<% Message.all.reverse_each do |message| %>
-			<table class = "chatcontainer">
-				<tr>
-			        <td class = "chatuser">
-			        	<%= link_to message.user do %>
-			        		<div class = "avatar-chat-<%= message.user.avatar %> chaticon"></div>
-			        	<% end %>
-			        	<div style = "color:<%= message.user.color_code %>;" ><%= message.user.username %></div>
-			        </td>
-			        <td class = "chatmessage">
-			        	<span style = "border-color:<%= message.user.color_code %>;" ><%= message.body %></span>
-			        </td>
-			    </tr>
-		    </table>
-	    <% end %>
+		<table class = "chatcontainer">
+			<% Message.all.reverse_each do |message| %>
+			
+
+					<%= render partial: 'messages/message', object: message %>
+
+
+	    	<% end %>
+	    </table>
 	</div>
 	<div class = "inputform">
 		<%= render 'messages/form' %>
@@ -24,6 +18,20 @@
 <div class = "col-md-1"></div>
 
 <script type="text/javascript">
-	var objDiv = document.getElementById("scroll");
-	objDiv.scrollTop = objDiv.scrollHeight;
+
+$(document).ready(function() {
+  $('#scroll').scrollTop($('#scroll')[0].scrollHeight);
+  $("input:text:visible:first").focus();
+});
+
+$(document).ready(function() {
+  var source = new EventSource('/realtime/messages');
+  source.addEventListener('new', function(e) {
+   var data = JSON.parse(e.data);
+   location.reload();
+   $(".chatcontainer").append("<%= j render(partial: '/messages/newmessage') %>");   
+  $('#scroll').scrollTop($('#scroll')[0].scrollHeight);
+  });
+});
+
 </script>

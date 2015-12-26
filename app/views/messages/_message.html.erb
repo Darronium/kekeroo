@@ -1,0 +1,11 @@
+<tr>
+    <td class = "chatuser">
+       	<%= link_to message.user do %>
+     		<div class = "avatar-chat-<%= message.user.avatar %> chaticon"></div>
+       	<% end %>
+       	<div style = "color:<%= message.user.color_code %>;" ><%= message.user.username %></div>
+    </td>
+    <td class = "chatmessage">
+      	<span style = "border-color:<%= message.user.color_code %>;" ><%= message.body %></span>
+    </td>
+</tr>

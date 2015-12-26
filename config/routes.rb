@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :messages
+  
   get 'errors/not_found'
   get 'errors/internal_server_error'
 
@@ -24,7 +24,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   #root 'landing_page#home'
   resources :users 
-  
+    resources :messages
+    get '/realtime/messages' => 'realtime#messages', :as => :realtime_messages
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

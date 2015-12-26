@@ -1,3 +1,3 @@
-uri = URI.parse("redis://redistogo:285c284f17ddcb2075f37ec3a62d1ad0@tarpon.redistogo.com:11888/")
+uri = URI.parse(ENV["REDISTOGO_URL"])
 REDIS = Redis.new(:url => uri)
 

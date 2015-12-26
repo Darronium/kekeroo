@@ -168,19 +168,21 @@ a{
 	float: right;
 	border: solid;
 	.userlist{
-		padding: 0;
+		padding: 10px;
 		margin: 0;
 		height: 610px;
 		width: 176px;
 		list-style-type: none;
 		overflow-y: scroll;
-		.status{
-			float: right;
+		display: inline-block;
+		position: relative;
+		.status{			
+			display: inline-block;
+			position: absolute;
+			right: 5px;
 			font-size: 30px;
 			margin-right: 10px;
 			color: #51F55F;
-			position: relative;
-			bottom: 5px;
 		}
 	}
 	#livesearch{

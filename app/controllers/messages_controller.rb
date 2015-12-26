@@ -1,7 +1,9 @@
 class MessagesController < ApplicationController
+  #include ActionController::Live
   before_action :set_message, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: :create
-  before_action :admin_user,     only: [:destroy, :index, :new]
+  before_action :admin_user,     only: [:destroy, :index]
+  after_action :limit_messages, only: :create
 
   # GET /messages
   # GET /messages.json
@@ -16,7 +18,6 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = Message.new
   end
 
   # GET /messages/1/edit
@@ -26,12 +27,13 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message = Message.new(message_params)
-    @message.user_id = current_user.id;
+    if current_user
+      @message = current_user.messages.build(message_params)
+    end
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to root_path }
+        format.html { redirect_to :back }
         format.json { render :show, status: :created, location: @message }
       else
         flash.now[:danger] = 'The message could not be sent (maximum number of characters allowed: 320).'
@@ -69,6 +71,10 @@ class MessagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_message
       @message = Message.find(params[:id])
+    end
+
+    def limit_messages
+      Message.last.delete until Message.count < 80
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

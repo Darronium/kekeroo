@@ -13,6 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20151224151002) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "adminpack"
+
   create_table "messages", force: :cascade do |t|
     t.text     "body"
     t.integer  "user_id"
@@ -20,7 +24,7 @@ ActiveRecord::Schema.define(version: 20151224151002) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
@@ -35,6 +39,6 @@ ActiveRecord::Schema.define(version: 20151224151002) do
     t.string   "color_code"
   end
 
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

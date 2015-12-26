@@ -8,7 +8,7 @@ class Message < ActiveRecord::Base
   
   def publish_message
   	uri = URI.parse('redis://redistogo:285c284f17ddcb2075f37ec3a62d1ad0@tarpon.redistogo.com:11888/')
-	REDIS = Redis.new(:url => uri)
+	redis = Redis.new(:url => uri)
 
   	redis.publish("new_message", self.to_json)
   end

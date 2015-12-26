@@ -23,7 +23,7 @@ $(document).ready(function() {
   $('#scroll').scrollTop($('#scroll')[0].scrollHeight);
 });
 
-$(document).ready(function() {
+/*$(document).ready(function() {
   var source = new EventSource('/realtime/messages');
   source.addEventListener('new', function(e) {
    var data = JSON.parse(e.data);
@@ -31,6 +31,6 @@ $(document).ready(function() {
    $(".chatcontainer").append("<%= j render(partial: '/messages/newmessage') %>");   
   $('#scroll').scrollTop($('#scroll')[0].scrollHeight);
   });
-});
+});*/
 
 </script>

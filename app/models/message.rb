@@ -1,6 +1,6 @@
 class Message < ActiveRecord::Base
   belongs_to :user
-  after_save :publish_message
+  #after_save :publish_message
 
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true

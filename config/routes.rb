@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   #root 'landing_page#home'
   resources :users 
-    resources :messages
+  resources :messages
     get '/realtime/messages' => 'realtime#messages', :as => :realtime_messages
 
 

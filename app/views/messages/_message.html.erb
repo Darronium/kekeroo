@@ -1,4 +1,4 @@
-<tr>
+<tr id = "message-<%= message.id %>">
     <td class = "chatuser">
        	<%= link_to message.user do %>
      		<div class = "avatar-chat-<%= message.user.avatar %> chaticon"></div>
@@ -6,6 +6,41 @@
        	<div style = "color:<%= message.user.color_code %>;" ><%= message.user.username %></div>
     </td>
     <td class = "chatmessage">
-      	<span style = "border-color:<%= message.user.color_code %>;" ><%= message.body %></span>
+      	<span class = "messagetext" id = "text-<%= message.id %>" style = "border-color:<%= message.user.color_code %>;" ><%= message.body %></span>
+      	<div class = "messageaction" id = "messageaction-<%= message.id %>">
+      		<span>appreciate</span>
+      		<span class = "hidelink" id ="hide-<%= message.id %>">hide</span>
+      		<span>report</span>
+      		<span>mute</span>
+      		<span>reply</span>
+      	</div>
     </td>
 </tr>
+
+<script>
+
+$(function(){
+	$(".messageaction").hide();;
+
+});
+
+$(document).on("click", "#text-<%= message.id %>", function(){
+	if ($("#messageaction-<%= message.id %>").is(":visible")){
+		var temp = true;
+	}else{
+		var temp = false;
+	}
+	$(".messageaction").hide();
+	$(".messagetext").css("box-shadow", "none");
+	if (!temp){
+		$("#messageaction-<%= message.id %>").show();
+		$("#text-<%= message.id %>").css("box-shadow", "0 0 10px <%= message.user.color_code %>");
+	}
+})
+
+$(document).on("click", "#hide-<%= message.id %>", function(){
+	$("#message-<%= message.id %>").hide();
+})
+
+
+</script>

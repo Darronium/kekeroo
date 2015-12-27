@@ -12,10 +12,7 @@
   <% end %>
 
   <div class="field"> 
-    <%= f.text_area :body, onkeyup: "if (event.shiftKey && event.keyCode == 13) 
-          {}
-        else if (event.keyCode == 13)
-          { this.form.submit(); return false; }" %>
+    <%= f.text_area :body %>
     <%= f.submit "Send", class: "btn btn-default" %>
   </div>
 <% end %>
@@ -24,5 +21,14 @@
 $(document).ready(function() {
   $("#message_body").focus();
 });
+$("#message_body").keyup(function(e){
+  if (e.which==13 && e.shiftKey){
+    return false;
+  }else if (e.which == 13){
+    this.form.submit();
+    $("#message_body").blur();
+    return false;
+  }
+})
 
 </script>

@@ -1,6 +1,6 @@
 class Message < ActiveRecord::Base
   belongs_to :user
-  after_save :publish_message
+  #after_save :publish_message
   after_save :delete_duplicates
   
 

@@ -8,11 +8,12 @@
     <td class = "chatmessage">
       	<span class = "messagetext" id = "text-<%= message.id %>" style = "border-color:<%= message.user.color_code %>;" ><%= message.body %></span>
       	<div class = "messageaction" id = "messageaction-<%= message.id %>">
-      		<span>appreciate</span>
-      		<span class = "hidelink" id ="hide-<%= message.id %>">hide</span>
+      		<span>kek</span>
+      		<span class = "action" id ="hide-<%= message.id %>">hide</span>
       		<span>report</span>
       		<span>mute</span>
-      		<span>reply</span>
+      		<span class = "action reply-<%= message.user.id %>">reply</span>
+      		<span style= "word-spacing: 10px;"><%= message.created_at.localtime.strftime("%H:%M:%S %d.%m.%y") %></span>
       	</div>
     </td>
 </tr>
@@ -21,6 +22,9 @@
 
 $(function(){
 	$(".messageaction").hide();;
+	if (sessionStorage.hide<%= message.id %>){
+		$("#message-<%= message.id %>").hide();
+	}
 
 });
 
@@ -34,13 +38,18 @@ $(document).on("click", "#text-<%= message.id %>", function(){
 	$(".messagetext").css("box-shadow", "none");
 	if (!temp){
 		$("#messageaction-<%= message.id %>").show();
-		$("#text-<%= message.id %>").css("box-shadow", "0 0 10px <%= message.user.color_code %>");
+		$("#text-<%= message.id %>").css("box-shadow", "0 0 6px <%= message.user.color_code %>");
 	}
-})
+});
 
 $(document).on("click", "#hide-<%= message.id %>", function(){
 	$("#message-<%= message.id %>").hide();
-})
+	sessionStorage.hide<%= message.id %> = true;
+});
 
+$(document).on("click", ".reply-<%= message.user.id %>", function(){
+	$("#message_body").val("@<%= message.user.username %> ");
+	$("#message_body").focus();
+});
 
 </script>

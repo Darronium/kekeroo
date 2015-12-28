@@ -10,17 +10,27 @@ User.create!(username:  "Admin",
              password:              "heihos",
              password_confirmation: "heihos",
              admin: true,
-             avatar: 3,
-             color_code: "#FFE080")
+             status: true,
+             avatar: 5,
+             color_code: "#DC143C")
+
+User.create!(username:  "kekeroo",
+             password:              "heihos",
+             password_confirmation: "heihos",
+             admin: false,
+             status: true,
+             avatar: 6,
+             color_code: "#BBE3FB")
+
 
 if Rails.env == "development"
-	20.times do |n|
-		User.create!(username:  "Testuser"+n.to_s,
+	6.times do |n|
+		User.create!(username:  "Testuser"+(n+1).to_s,
 	             	password:              "123456",
 	             	password_confirmation: "123456",
 	             	admin: false,
 	             	status: true,
-	             	avatar: rand(1..4),
-	             	color_code: ["#FBB07D", "#89C2F8", "#AEF184", "#FF8D8D", "#FFFF52"].sample)
+	             	avatar: (n+1),
+	             	color_code: ["#FBB07D", "#89C2F8", "#AEF184", "#FF8D8D", "#FFFF52", "#FFE080", "#8C4C8C"].sample)
 	end
 end

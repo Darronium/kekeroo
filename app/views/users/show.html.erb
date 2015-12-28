@@ -1,7 +1,18 @@
 <% provide(:title, @user.username) %>
-<h1><%= @user.username %> - <%= @user.color_code %></h1>
-<div class = "avatar-chat-<%= @user.avatar %>"></div>
-<% if (current_user.admin? && !current_user?(@user)) || (!current_user.admin? && @user == current_user) %>
-    <%= link_to "Delete User?", @user, method: :delete,
-                                  data: { confirm: "You sure?" } %>
-<% end %>
+<div class = "container" style = "color: <%= @user.color_code %>;">
+	<h1><%= @user.username %> - <%= @user.color_code %> - Placeholder for Profile customization</h1>
+	<div class = "avatar-chat-<%= @user.avatar %>"></div>
+	<% if (current_user.admin? && !current_user?(@user)) || (!current_user.admin? && @user == current_user) %>
+	    <%= link_to "Delete User?", @user, method: :delete,
+	                                  data: { confirm: "You sure?" } %>
+	<% end %>
+
+	<ul class = "profilelist">
+	<% @user.messages.all.each do |message| %>			
+		<li class = "profilemessage">
+			<%= message.body %>
+		</li>
+	<% end %>
+
+	</ul>
+</div>

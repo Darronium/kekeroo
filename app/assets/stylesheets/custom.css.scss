@@ -225,7 +225,7 @@ a{
 					font-size: 70%;
 					font-weight: bold;
 					color: #696363;
-					.hidelink{
+					.action{
 						&:hover{
 							cursor: pointer;
 						}
@@ -267,3 +267,11 @@ a{
 	}
 }
 
+.profilelist{
+	width: 50%;
+	margin: 20px;
+	list-style-type: none;
+	.profilemessage{
+		padding: 10px;
+	}
+}

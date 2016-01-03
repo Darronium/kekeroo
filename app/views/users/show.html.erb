@@ -1,18 +1,26 @@
 <% provide(:title, @user.username) %>
 <div class = "container" style = "color: <%= @user.color_code %>;">
-	<h1><%= @user.username %> - <%= @user.color_code %> - Placeholder for Profile customization</h1>
 	<div class = "avatar-chat-<%= @user.avatar %>"></div>
 	<% if (current_user.admin? && !current_user?(@user)) || (!current_user.admin? && @user == current_user) %>
-	    <%= link_to "Delete User?", @user, method: :delete,
+	    <%= link_to "Delete Account?", @user, method: :delete,
 	                                  data: { confirm: "You sure?" } %>
 	<% end %>
-
-	<ul class = "profilelist">
-	<% @user.messages.all.each do |message| %>			
-		<li class = "profilemessage">
-			<%= message.body %>
-		</li>
-	<% end %>
-
-	</ul>
+	<h1><%= @user.username %> - <%= @user.color_code %> - Placeholder for Profile customization</h1>
+	
+	
+	<div class = "col-md-8">
+		<h3>Messages</h3>
+		<ul class = "profilelist">
+			<% @user.messages.all.each do |message| %>			
+				<li class = "profilemessage">
+					<%= message.body %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+	<div class = "col-md-2">
+		
+	</div>
+	<div class = "col-md-2">
+	</div>
 </div>

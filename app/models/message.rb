@@ -1,5 +1,6 @@
 class Message < ActiveRecord::Base
   belongs_to :user
+  has_many :keks, dependent: :destroy
   #after_save :publish_message
   after_save :delete_duplicates
   

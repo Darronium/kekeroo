@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get 'download'  => 'static_pages#download'
   get 'help'      => 'static_pages#help'
+  get 'imprint'   => 'static_pages#imprint'
   get 'signup'    => 'users#new'
   get 'login'    => 'users#new'
 
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
   resources :users 
   resources :messages
     get '/realtime/messages' => 'realtime#messages', :as => :realtime_messages
+
 
 
   # Example of regular route:

@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :messages, dependent: :destroy
+  has_many :keks
+
 	attr_accessor :remember_token
 	validates :username, presence: true, length: {in: 3..12}, uniqueness: { case_sensitive: false }
 	has_secure_password
@@ -36,6 +38,9 @@ class User < ActiveRecord::Base
   def to_param
     username
   end
+
+
+
 
   
 end
